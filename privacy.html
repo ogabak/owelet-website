@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Owelet</title>
+  <meta name="description" content="Owelet Privacy Policy — how we collect, use, and protect your data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-deep:  #0F3D2E;
+      --green-dark:  #0A2A1E;
+      --green-mid:   #1A5C44;
+      --gold:        #C9A227;
+      --gold-pale:   #FDF3D7;
+      --white:       #FFFFFF;
+      --grey-light:  #F2F5F3;
+      --text-dark:   #0D1F18;
+      --text-mid:    #3D5447;
+      --text-muted:  #7A9186;
+      --border:      #E2EAE5;
+      --font-display:'Playfair Display', Georgia, serif;
+      --font-body:   'DM Sans', -apple-system, sans-serif;
+      --radius-md:   16px;
+      --shadow-sm:   0 2px 8px rgba(15,61,46,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+    a { color: var(--green-mid); text-decoration: none; }
+    a:hover { color: var(--gold); text-decoration: underline; }
+
+    /* Nav */
+    nav {
+      background: var(--green-deep);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 32px; height: 32px;
+      background: var(--gold);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .nav-back {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--white); text-decoration: none; }
+
+    /* Page header */
+    .page-header {
+      background: var(--green-deep);
+      padding: 64px 0 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,162,39,0.1) 0%, transparent 60%);
+    }
+    .page-header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .page-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .page-meta {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Layout */
+    .layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Sidebar TOC */
+    .toc {
+      position: sticky;
+      top: 80px;
+    }
+    .toc-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 4px; }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--text-mid);
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: block;
+      transition: all 0.2s;
+      border-left: 2px solid transparent;
+      text-decoration: none;
+    }
+    .toc-list a:hover {
+      background: var(--grey-light);
+      color: var(--green-deep);
+      border-left-color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* Content */
+    .content section {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .content section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .content h2 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      scroll-margin-top: 96px;
+    }
+    .content h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 28px 0 10px;
+    }
+    .content p {
+      font-size: 15px;
+      color: var(--text-mid);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+    .content ul, .content ol {
+      margin: 0 0 16px 20px;
+    }
+    .content li {
+      font-size: 15px;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+    .content strong { color: var(--text-dark); font-weight: 600; }
+
+    /* Highlight box */
+    .highlight-box {
+      background: var(--gold-pale);
+      border: 1.5px solid rgba(201,162,39,0.3);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .highlight-box p {
+      margin-bottom: 0;
+      font-size: 15px;
+      color: var(--text-dark);
+    }
+    .info-box {
+      background: var(--grey-light);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .info-box p { margin-bottom: 0; }
+
+    /* Contact box */
+    .contact-box {
+      background: var(--green-deep);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .contact-box h3 { color: var(--white); font-size: 20px; margin-bottom: 8px; }
+    .contact-box p { color: rgba(255,255,255,0.65); margin-bottom: 20px; }
+    .contact-box a {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--green-dark);
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .contact-box a:hover { background: #E8C05A; text-decoration: none; }
+
+    /* Footer */
+    footer {
+      background: var(--green-dark);
+      padding: 32px 0;
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    @media (max-width: 768px) {
+      .layout { grid-template-columns: 1fr; gap: 32px; }
+      .toc { display: none; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🦉</div>
+        Owelet
+      </a>
+      <a href="index.html" class="nav-back">← Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-label">Legal</div>
+      <h1 class="page-title">Privacy Policy</h1>
+      <div class="page-meta">Last updated: March 2026 &nbsp;·&nbsp; Effective date: March 2026</div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="layout">
+
+    <!-- TOC -->
+    <aside class="toc">
+      <div class="toc-title">On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#information-we-collect">Information We Collect</a></li>
+        <li><a href="#how-we-use">How We Use Your Data</a></li>
+        <li><a href="#data-sharing">Data Sharing</a></li>
+        <li><a href="#data-storage">Data Storage & Security</a></li>
+        <li><a href="#contacts">Contact Access</a></li>
+        <li><a href="#payments">Payment Data</a></li>
+        <li><a href="#children">Children's Privacy</a></li>
+        <li><a href="#your-rights">Your Rights</a></li>
+        <li><a href="#retention">Data Retention</a></li>
+        <li><a href="#third-parties">Third-Party Services</a></li>
+        <li><a href="#nigeria">Nigeria Data Protection</a></li>
+        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main content -->
+    <div class="content">
+
+      <section id="overview">
+        <h2>Overview</h2>
+        <div class="highlight-box">
+          <p><strong>Plain English summary:</strong> Owelet collects only what it needs to run the app. We do not sell your data. We do not share your data with advertisers. Your debt records are private to you. You can delete your account and all your data at any time.</p>
+        </div>
+        <p>This Privacy Policy explains how Owelet ("we," "us," or "our") collects, uses, stores, and protects your personal information when you use the Owelet mobile application and any related services (collectively, the "Service").</p>
+        <p>By downloading or using Owelet, you agree to the collection and use of information as described in this Privacy Policy. If you do not agree, please do not use the Service.</p>
+        <p>We are committed to protecting your privacy and handling your personal information in accordance with the Nigeria Data Protection Regulation (NDPR) 2019, issued by the National Information Technology Development Agency (NITDA), and other applicable data protection laws.</p>
+      </section>
+
+      <section id="information-we-collect">
+        <h2>Information We Collect</h2>
+
+        <h3>1. Information You Provide Directly</h3>
+        <p>When you create an account and use Owelet, you may provide us with:</p>
+        <ul>
+          <li><strong>Account information:</strong> Your full name and email address, provided when you create an Owelet account.</li>
+          <li><strong>Business information:</strong> Your business name and business phone number, if you choose to add these for receipt branding (Pro feature). This is optional.</li>
+          <li><strong>Debt records:</strong> The names, phone numbers, amounts, descriptions, due dates, and payment histories of your credit customers that you enter into the app.</li>
+          <li><strong>Payment records:</strong> Details of payments made by your customers, including amounts, dates, and any notes you attach.</li>
+          <li><strong>Notes and descriptions:</strong> Any additional text you enter when creating or updating debt records.</li>
+        </ul>
+
+        <h3>2. Information Collected Automatically</h3>
+        <p>When you use the Service, we may automatically collect certain technical information:</p>
+        <ul>
+          <li><strong>Device information:</strong> Your device type, operating system version, and unique device identifiers. This is used to ensure the app functions correctly on your device.</li>
+          <li><strong>Usage data:</strong> Information about how you use the app, such as which features you use and when you use them. This helps us improve the product.</li>
+          <li><strong>Error logs:</strong> Crash reports and error logs that help us identify and fix technical problems. These may include device state at the time of a crash but do not include your personal debt records.</li>
+          <li><strong>App version:</strong> The version of Owelet you are running, so we can provide relevant support.</li>
+        </ul>
+
+        <h3>3. Information from Third Parties</h3>
+        <p>If you use Google Sign-In or another third-party authentication method to create your account (where available), we receive basic profile information from that provider — typically your name and email address — as permitted by their terms. We do not receive your passwords or payment information from these providers.</p>
+
+        <h3>4. Contact Information (with Your Permission)</h3>
+        <p>If you use the "Import from Contacts" feature, Owelet requests permission to access your device's contact list. See the <a href="#contacts">Contact Access</a> section below for full details on how this works.</p>
+      </section>
+
+      <section id="how-we-use">
+        <h2>How We Use Your Data</h2>
+        <p>We use the information we collect for the following purposes only:</p>
+
+        <h3>To Provide the Service</h3>
+        <ul>
+          <li>Creating and managing your Owelet account</li>
+          <li>Storing and syncing your debt records across your devices</li>
+          <li>Generating payment receipts and business reports</li>
+          <li>Sending payment reminder notifications to your device</li>
+          <li>Enabling WhatsApp and SMS receipt sharing</li>
+          <li>Processing subscription payments via Paystack</li>
+        </ul>
+
+        <h3>To Improve the Service</h3>
+        <ul>
+          <li>Analysing aggregated, anonymised usage patterns to improve app performance and features</li>
+          <li>Diagnosing and fixing technical errors and crashes</li>
+          <li>Testing new features before broad release</li>
+        </ul>
+
+        <h3>To Communicate With You</h3>
+        <ul>
+          <li>Sending transactional emails such as account verification, password resets, and subscription confirmations</li>
+          <li>Notifying you of important changes to the Service, these Terms, or our Privacy Policy</li>
+          <li>Responding to your support requests sent to info@owelet.ng</li>
+        </ul>
+
+        <h3>For Legal Compliance</h3>
+        <ul>
+          <li>Complying with applicable laws and regulations in Nigeria</li>
+          <li>Responding to lawful requests from government authorities</li>
+          <li>Enforcing our Terms of Use and protecting the rights of Owelet and our users</li>
+        </ul>
+
+        <div class="info-box">
+          <p><strong>We never use your data for advertising.</strong> Owelet does not display advertisements and does not share your data with advertising networks or data brokers. Your debt records are never used for marketing purposes.</p>
+        </div>
+      </section>
+
+      <section id="data-sharing">
+        <h2>Data Sharing</h2>
+        <p>We do not sell your personal data. We do not trade your data. We share your information only in the following limited circumstances:</p>
+
+        <h3>Service Providers</h3>
+        <p>We work with a small number of trusted third-party service providers who help us operate Owelet. These providers process your data only on our behalf and under our instructions, and are contractually prohibited from using your data for their own purposes:</p>
+        <ul>
+          <li><strong>Supabase (database and authentication):</strong> Your account data and debt records are stored on Supabase's infrastructure. Supabase is hosted in the European Union. See <a href="https://supabase.com/privacy" target="_blank">Supabase's Privacy Policy</a>.</li>
+          <li><strong>Paystack (payment processing):</strong> Subscription payment information is processed by Paystack. Owelet does not store your card details. See <a href="https://paystack.com/privacy" target="_blank">Paystack's Privacy Policy</a>.</li>
+        </ul>
+
+        <h3>Legal Requirements</h3>
+        <p>We may disclose your information if we believe in good faith that disclosure is necessary to:</p>
+        <ul>
+          <li>Comply with a valid legal obligation, court order, or lawful government request under Nigerian law</li>
+          <li>Protect the safety of any person from harm</li>
+          <li>Prevent fraud or address security threats to Owelet or our users</li>
+          <li>Enforce our Terms of Use</li>
+        </ul>
+        <p>Where legally permitted, we will notify you before disclosing your information in response to a legal request.</p>
+
+        <h3>Business Transfers</h3>
+        <p>If Owelet is involved in a merger, acquisition, or sale of assets, your personal data may be transferred as part of that transaction. We will notify you via email and a prominent notice in the app before your data is transferred and becomes subject to a different privacy policy.</p>
+
+        <h3>With Your Consent</h3>
+        <p>We may share your information for any other purpose with your explicit prior consent.</p>
+      </section>
+
+      <section id="data-storage">
+        <h2>Data Storage and Security</h2>
+
+        <h3>Where Your Data is Stored</h3>
+        <p>Your Owelet data is stored in two places:</p>
+        <ul>
+          <li><strong>On your device:</strong> Debt records are stored locally on your phone using an encrypted local database (Hive). This allows Owelet to work fully offline, even without an internet connection.</li>
+          <li><strong>In the cloud:</strong> When you are connected to the internet, your data is automatically synced to our secure cloud database hosted by Supabase in the European Union (Frankfurt, Germany). This enables data backup and access across multiple devices.</li>
+        </ul>
+
+        <h3>How We Protect Your Data</h3>
+        <p>We implement industry-standard security measures to protect your information:</p>
+        <ul>
+          <li><strong>Encryption in transit:</strong> All data transmitted between the app and our servers is encrypted using TLS (Transport Layer Security).</li>
+          <li><strong>Encryption at rest:</strong> Your data stored in our cloud database is encrypted at rest by Supabase.</li>
+          <li><strong>Row-Level Security:</strong> Our database is configured so that each user can only access their own data. It is technically impossible for one Owelet user to view another user's debt records.</li>
+          <li><strong>Authentication:</strong> Access to your account requires email and password verification. You can optionally add a PIN lock for additional device-level security.</li>
+          <li><strong>PKCE authentication flow:</strong> We use the Proof Key for Code Exchange (PKCE) standard for secure mobile authentication.</li>
+        </ul>
+
+        <h3>No Security is Absolute</h3>
+        <p>While we take data security seriously and implement strong protections, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee the absolute security of your data. If you believe your account has been compromised, please contact us immediately at <a href="mailto:info@owelet.ng">info@owelet.ng</a>.</p>
+      </section>
+
+      <section id="contacts">
+        <h2>Contact Access</h2>
+        <p>Owelet includes an optional "Import from Contacts" feature that allows you to quickly fill in a debtor's name and phone number by selecting them from your phone's contact list.</p>
+
+        <h3>What We Access</h3>
+        <p>When you use this feature, Owelet requests permission to read your device contacts. We access only the name and phone number of the specific contact you select.</p>
+
+        <h3>What We Do Not Do</h3>
+        <ul>
+          <li>We do not upload your contact list to our servers</li>
+          <li>We do not store your contacts beyond the single name and phone number you choose to add to a debt record</li>
+          <li>We do not scan, analyse, or retain your full contact list</li>
+          <li>We do not use your contacts for marketing or share them with any third party</li>
+        </ul>
+
+        <h3>This Feature is Optional</h3>
+        <p>You can use Owelet fully without granting contact access. You can type debtor names and phone numbers manually at any time. If you previously granted contacts permission and wish to revoke it, you can do so in your phone's app settings at any time.</p>
+      </section>
+
+      <section id="payments">
+        <h2>Payment Data</h2>
+        <p>Owelet Pro subscriptions are processed by <strong>Paystack</strong>, a third-party payment processor.</p>
+
+        <h3>What Owelet Receives</h3>
+        <p>When you subscribe, Paystack sends us a webhook notification confirming your payment was successful. This notification includes:</p>
+        <ul>
+          <li>Your email address (to identify your account)</li>
+          <li>The subscription plan you chose (monthly or annual)</li>
+          <li>A transaction reference number</li>
+          <li>The amount charged</li>
+        </ul>
+        <p>We use this information only to activate and manage your Pro subscription in Owelet.</p>
+
+        <h3>What Owelet Does Not Receive or Store</h3>
+        <ul>
+          <li>Your card number, CVV, or expiry date</li>
+          <li>Your bank account details</li>
+          <li>Any other sensitive payment credentials</li>
+        </ul>
+        <p>All sensitive payment data is handled exclusively by Paystack on their secure PCI-DSS compliant infrastructure. Please review <a href="https://paystack.com/privacy" target="_blank">Paystack's Privacy Policy</a> for details on how they handle your payment information.</p>
+
+        <h3>Subscription Records</h3>
+        <p>We maintain records of your subscription history — when you subscribed, which plan, and when it expires — for the purpose of managing your access to Pro features and for financial record-keeping as required by law.</p>
+      </section>
+
+      <section id="children">
+        <h2>Children's Privacy</h2>
+        <p>Owelet is not intended for use by children under the age of 18. We do not knowingly collect personal information from anyone under 18 years of age.</p>
+        <p>If you are a parent or guardian and believe your child has provided personal information to Owelet without your consent, please contact us immediately at <a href="mailto:info@owelet.ng">info@owelet.ng</a>. We will take steps to delete such information promptly.</p>
+      </section>
+
+      <section id="your-rights">
+        <h2>Your Rights</h2>
+        <p>Under the Nigeria Data Protection Regulation (NDPR) and applicable law, you have the following rights regarding your personal data:</p>
+
+        <h3>Right to Access</h3>
+        <p>You have the right to request a copy of the personal data we hold about you. You can access most of your data directly through the Owelet app. For a complete data export, contact us at <a href="mailto:info@owelet.ng">info@owelet.ng</a>.</p>
+
+        <h3>Right to Rectification</h3>
+        <p>You have the right to request correction of inaccurate or incomplete personal data. You can update your account information directly in the app under Settings. For other corrections, contact us.</p>
+
+        <h3>Right to Erasure</h3>
+        <p>You have the right to request deletion of your personal data and Owelet account. To delete your account and all associated data, contact us at <a href="mailto:info@owelet.ng">info@owelet.ng</a> with the subject line "Account Deletion Request." We will complete the deletion within 7 business days and confirm when done.</p>
+        <p>Please note that we may retain certain information as required by law (such as subscription payment records for tax purposes) for the legally required period even after account deletion.</p>
+
+        <h3>Right to Data Portability</h3>
+        <p>You have the right to receive your data in a portable format. Owelet supports this through our built-in JSON and CSV export features, accessible in Settings → Export, Backup & Reports. You can export all your debt records at any time.</p>
+
+        <h3>Right to Object</h3>
+        <p>You have the right to object to certain types of processing, such as processing for direct marketing purposes. Owelet does not conduct direct marketing using your personal data.</p>
+
+        <h3>Right to Withdraw Consent</h3>
+        <p>Where we process your data based on your consent (such as contact access), you may withdraw that consent at any time through your device settings without affecting the lawfulness of processing before withdrawal.</p>
+
+        <h3>How to Exercise Your Rights</h3>
+        <p>To exercise any of these rights, contact us at <a href="mailto:info@owelet.ng">info@owelet.ng</a>. We will respond to all requests within 30 days. We may need to verify your identity before processing your request.</p>
+      </section>
+
+      <section id="retention">
+        <h2>Data Retention</h2>
+        <p>We retain your personal data for as long as your account is active or as necessary to provide you with the Service.</p>
+        <ul>
+          <li><strong>Account data:</strong> Retained for the duration of your account and deleted within 7 business days of an account deletion request.</li>
+          <li><strong>Debt and payment records:</strong> Retained as long as your account exists. Deleted when you delete your account.</li>
+          <li><strong>Subscription records:</strong> Retained for 7 years after the subscription ends, as required by Nigerian financial record-keeping regulations.</li>
+          <li><strong>Error logs:</strong> Automatically deleted after 90 days.</li>
+          <li><strong>Usage analytics:</strong> Aggregated and anonymised after 12 months. Individual usage data is deleted after 12 months.</li>
+        </ul>
+        <p>When data reaches the end of its retention period, we securely delete or anonymise it.</p>
+      </section>
+
+      <section id="third-parties">
+        <h2>Third-Party Services</h2>
+        <p>Owelet integrates with or links to the following third-party services. Each has its own privacy policy that governs their use of your data:</p>
+        <ul>
+          <li><strong>Supabase</strong> — Database and authentication. <a href="https://supabase.com/privacy" target="_blank">Privacy Policy</a></li>
+          <li><strong>Paystack</strong> — Payment processing. <a href="https://paystack.com/privacy" target="_blank">Privacy Policy</a></li>
+          <li><strong>Google Fonts</strong> — Typography (loaded from Google's CDN). <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a></li>
+          <li><strong>WhatsApp</strong> — When you share a receipt via WhatsApp, the content is handled by WhatsApp/Meta. We do not control how WhatsApp processes shared content. <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank">WhatsApp Privacy Policy</a></li>
+        </ul>
+        <p>We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies.</p>
+      </section>
+
+      <section id="nigeria">
+        <h2>Nigeria Data Protection Compliance</h2>
+        <p>Owelet is committed to full compliance with the Nigeria Data Protection Regulation (NDPR) 2019 issued by the National Information Technology Development Agency (NITDA).</p>
+
+        <h3>Lawful Basis for Processing</h3>
+        <p>We process your personal data on the following lawful bases under the NDPR:</p>
+        <ul>
+          <li><strong>Contract performance:</strong> Processing necessary to provide you with the Owelet Service you have agreed to use, including storing your debt records and processing your subscription.</li>
+          <li><strong>Consent:</strong> Processing based on your explicit consent, such as accessing your device contacts. You may withdraw consent at any time.</li>
+          <li><strong>Legitimate interests:</strong> Processing necessary for our legitimate business interests, such as improving the app and preventing fraud, where these interests do not override your rights.</li>
+          <li><strong>Legal obligation:</strong> Processing required to comply with applicable Nigerian law.</li>
+        </ul>
+
+        <h3>Data Protection Officer</h3>
+        <p>For NDPR-related enquiries, you may contact us at <a href="mailto:info@owelet.ng">info@owelet.ng</a>. We will respond within 30 days.</p>
+
+        <h3>Cross-Border Data Transfers</h3>
+        <p>Your data is stored on servers in the European Union (Frankfurt, Germany) operated by Supabase. The EU maintains data protection standards that are broadly comparable to the NDPR. These transfers are conducted under appropriate safeguards as required by NDPR Article 41.</p>
+      </section>
+
+      <section id="changes">
+        <h2>Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, the Service, or applicable law. When we make changes:</p>
+        <ul>
+          <li>We will update the "Last updated" date at the top of this page</li>
+          <li>For significant changes, we will notify you by email and/or by a prominent notice in the app at least 14 days before the changes take effect</li>
+          <li>For minor changes (such as clarifications), we will update the policy without individual notification</li>
+        </ul>
+        <p>Your continued use of Owelet after any changes to this Privacy Policy constitutes your acceptance of the revised policy. If you do not agree to the revised policy, you should stop using the Service and may request deletion of your account.</p>
+        <p>We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:info@owelet.ng">info@owelet.ng</a></li>
+          <li><strong>App:</strong> Owelet — available on Google Play</li>
+          <li><strong>Response time:</strong> We aim to respond to all privacy enquiries within 5 business days and no later than 30 days.</li>
+        </ul>
+
+        <div class="contact-box">
+          <h3>Have a privacy question?</h3>
+          <p>We're committed to being transparent and responsive. If something in this policy is unclear or you need help with your data, reach out to us directly.</p>
+          <a href="mailto:info@owelet.ng">Email info@owelet.ng</a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-copy">© 2025 Owelet. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="mailto:info@owelet.ng">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
