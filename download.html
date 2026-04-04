@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon — Owelet</title>
+  <meta name="description" content="Owelet is coming to Google Play soon. Join the waitlist and be the first to know when we launch." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-deep:  #0F3D2E;
+      --green-dark:  #0A2A1E;
+      --green-mid:   #1A5C44;
+      --green-light: #5FAF7A;
+      --gold:        #C9A227;
+      --gold-light:  #E8C05A;
+      --gold-pale:   #FDF3D7;
+      --white:       #FFFFFF;
+      --text-muted:  rgba(255,255,255,0.55);
+      --font-display:'Playfair Display', Georgia, serif;
+      --font-body:   'DM Sans', -apple-system, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--font-body);
+      background: var(--green-deep);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Background layers ───────────────────────────────────────────────── */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 10%, rgba(201,162,39,0.13) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 10% 90%, rgba(95,175,122,0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(26,92,68,0.4) 0%, transparent 80%);
+    }
+
+    /* Subtle animated orb */
+    .orb {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,162,39,0.06) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse 6s ease-in-out infinite;
+      z-index: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+      50%       { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+    }
+
+    /* ── Nav ─────────────────────────────────────────────────────────────── */
+    nav {
+      position: relative;
+      z-index: 10;
+      padding: 20px 0;
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 36px; height: 36px;
+      background: var(--gold);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .nav-back {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--white); }
+
+    /* ── Main ────────────────────────────────────────────────────────────── */
+    main {
+      position: relative;
+      z-index: 5;
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px 80px;
+    }
+
+    .card {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Logo */
+    .logo-wrap {
+      width: 96px;
+      height: 96px;
+      background: rgba(201,162,39,0.12);
+      border: 1.5px solid rgba(201,162,39,0.25);
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 48px;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,162,39,0.15);
+      border: 1px solid rgba(201,162,39,0.3);
+      color: var(--gold);
+      padding: 7px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
+    }
+    .badge-dot {
+      width: 7px; height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: blink 1.5s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* Headline */
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    /* Subtitle */
+    .subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Email form ───────────────────────────────────────────────────────── */
+    .form-wrap {
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .form-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+    .form-input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      padding: 14px 20px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.35); }
+    .form-input:focus {
+      border-color: rgba(201,162,39,0.6);
+      background: rgba(255,255,255,0.1);
+    }
+    .form-btn {
+      background: var(--gold);
+      color: var(--green-dark);
+      border: none;
+      border-radius: 100px;
+      padding: 14px 24px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .form-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .form-btn:active { transform: translateY(0); }
+
+    /* Success state */
+    .success-msg {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(95,175,122,0.15);
+      border: 1.5px solid rgba(95,175,122,0.3);
+      border-radius: 12px;
+      padding: 14px 20px;
+      margin-top: 16px;
+      color: var(--green-light);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .success-msg.visible { display: flex; }
+
+    /* Privacy note */
+    .privacy-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 12px;
+    }
+    .privacy-note a {
+      color: rgba(255,255,255,0.45);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .privacy-note a:hover { color: var(--white); }
+
+    /* ── Feature pills ───────────────────────────────────────────────────── */
+    .features-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .feature-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 8px 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      transition: all 0.2s;
+    }
+    .feature-pill:hover {
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      border-color: rgba(255,255,255,0.2);
+    }
+    .pill-icon { font-size: 14px; }
+
+    /* ── Social links ─────────────────────────────────────────────────────── */
+    .social-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .social-row a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .social-row a:hover { color: var(--gold-light); }
+
+    /* ── Footer ──────────────────────────────────────────────────────────── */
+    footer {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .form-row { flex-direction: column; }
+      .form-btn { width: 100%; }
+      .form-wrap { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg"></div>
+  <div class="orb"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🦉</div>
+        Owelet
+      </a>
+      <a href="index.html" class="nav-back">← Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main>
+    <div class="card">
+
+      <!-- Logo -->
+      <div class="logo-wrap">🦉</div>
+
+      <!-- Badge -->
+      <div class="badge">
+        <div class="badge-dot"></div>
+        Launching Soon on Google Play
+      </div>
+
+      <!-- Headline -->
+      <h1>
+        Your debt book,<br>
+        <em>coming very soon.</em>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="subtitle">
+        Owelet is almost ready. We are putting the finishing touches on your new favourite business tool — a smarter way to track who owes you money, built for Nigerian traders.
+      </p>
+
+      <!-- Feature pills -->
+      <div class="features-row">
+        <div class="feature-pill">
+          <span class="pill-icon">🧾</span> WhatsApp Receipts
+        </div>
+        <div class="feature-pill">
+          <span class="pill-icon">🔔</span> Payment Reminders
+        </div>
+        <div class="feature-pill">
+          <span class="pill-icon">☁️</span> Cloud Backup
+        </div>
+        <div class="feature-pill">
+          <span class="pill-icon">📊</span> Business Reports
+        </div>
+        <div class="feature-pill">
+          <span class="pill-icon">🔒</span> Private & Secure
+        </div>
+      </div>
+
+      <!-- Waitlist form -->
+      <div class="form-wrap">
+        <label class="form-label">
+          Be the first to know when we launch — join the waitlist.
+        </label>
+        <div class="form-row">
+          <input
+            type="email"
+            class="form-input"
+            id="emailInput"
+            placeholder="Enter your email address"
+            autocomplete="email"
+          />
+          <button class="form-btn" onclick="handleSubmit()">
+            Notify Me
+          </button>
+        </div>
+        <div class="success-msg" id="successMsg">
+          ✅ You're on the list! We'll email you the moment Owelet launches.
+        </div>
+        <p class="privacy-note">
+          No spam. One email when we launch, that's it.
+          Read our <a href="privacy.html">Privacy Policy</a>.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="social-row">
+        Questions? Email us at
+        <a href="mailto:info@owelet.ng">info@owelet.ng</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:info@owelet.ng">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 Owelet. All rights reserved. Made for West African businesses.</div>
+  </footer>
+
+  <script>
+    function handleSubmit() {
+      const input = document.getElementById('emailInput');
+      const successMsg = document.getElementById('successMsg');
+      const email = input.value.trim();
+
+      // Basic validation
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        input.style.borderColor = 'rgba(220, 80, 80, 0.6)';
+        input.placeholder = 'Please enter a valid email address';
+        setTimeout(() => {
+          input.style.borderColor = 'rgba(255,255,255,0.15)';
+          input.placeholder = 'Enter your email address';
+        }, 2500);
+        return;
+      }
+
+      // Show success
+      input.style.display = 'none';
+      document.querySelector('.form-btn').style.display = 'none';
+      successMsg.classList.add('visible');
+
+      // In production: send email to your backend or a service like
+      // Mailchimp, Brevo, or EmailJS to capture the waitlist signup.
+      // Example with EmailJS (free tier available at emailjs.com):
+      //
+      // emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+      //   user_email: email,
+      //   to_email: 'info@owelet.ng'
+      // });
+      //
+      // Or simply log it for now:
+      console.log('Waitlist signup:', email);
+    }
+
+    // Allow Enter key to submit
+    document.getElementById('emailInput')
+      .addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') handleSubmit();
+      });
+  </script>
+
+</body>
+</html>
